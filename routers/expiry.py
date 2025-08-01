@@ -10,8 +10,8 @@ model = joblib.load("expiry_predictor.pkl")
 
 # Define the expected input format (matches training features)
 class ExpiryInput(BaseModel):
-    hemoglobin: float       # corresponds to 'hemoglobin_g_dl'
-    volume: float           # corresponds to 'collection_volume_ml'
+    hemoglobin_g_dl: float       
+    collection_volume_ml: float           
     donor_age: int
 
 @router.post("/predict_expiry")
@@ -19,8 +19,8 @@ def predict_expiry(data: ExpiryInput):
     try:
         # Create feature array in the same order as training
         features = np.array([
-            data.hemoglobin,
-            data.volume,
+            data.collection_volume_ml,
+            data.collection_volume_ml,
             data.donor_age
         ]).reshape(1, -1)
 
