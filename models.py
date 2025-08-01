@@ -12,3 +12,4 @@ class BloodDonation(Base):
     donor_age = Column(Integer)
     donor_gender = Column(String)
     shelf_life_days = Column(Integer)
+     collection_volume_ml = Column(Float, nullable=True) 
