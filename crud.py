@@ -1,16 +1,13 @@
-from models import BloodDonation
-from sqlalchemy.orm import Session
-
-def bulk_insert_donations(db: Session, df):
+def bulk_insert_donations(db: Session, df: pd.DataFrame):
     for _, row in df.iterrows():
-        record = BloodDonation(
-            blood_type=row["blood_type"],
+        donation = models.BloodDonation(
             donation_date=row["donation_date"],
-            volume = row['collection_volume_ml'],
-            temperature=row["temperature"],
+            blood_type=row["blood_type"],
+            volume=row["collection_volume_ml"],  # <-- Use correct column name
+            hemoglobin=row["hemoglobin_g_dl"],
             donor_age=row["donor_age"],
-            location=row["location"],
-            shelf_life_days=row["shelf_life_days"],
+            donor_gender=row["donor_gender"],
+            shelf_life_days=row["shelf_life_days"]
         )
-        db.add(record)
+        db.add(donation)
     db.commit()
