@@ -2,13 +2,13 @@ from sqlalchemy import Column, Integer, String, Float, Date
 from database import Base
 
 class BloodDonation(Base):
-    __tablename__ = "donations"
+    __tablename__ = "blood_donations"
 
     id = Column(Integer, primary_key=True, index=True)
-    blood_type = Column(String)
     donation_date = Column(Date)
-    collection_volume_ml = Column(Float)
-    temperature = Column(Float)
+    blood_type = Column(String)
+    volume = Column(Float)  # <-- Maps to collection_volume_ml
+    hemoglobin = Column(Float)  # <-- Maps to hemoglobin_g_dl
     donor_age = Column(Integer)
-    location = Column(String)
-    shelf_life_days = Column(Float)
+    donor_gender = Column(String)
+    shelf_life_days = Column(Integer)
