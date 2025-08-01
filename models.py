@@ -7,9 +7,9 @@ class BloodDonation(Base):
     id = Column(Integer, primary_key=True, index=True)
     donation_date = Column(Date)
     blood_type = Column(String)
-    volume = Column(Float)  # <-- Maps to collection_volume_ml
-    hemoglobin = Column(Float)  # <-- Maps to hemoglobin_g_dl
+    collection_volume_ml = Column(Float, nullable=True) 
+    hemoglobin_g_dl = Column(Float) 
     donor_age = Column(Integer)
     donor_gender = Column(String)
     shelf_life_days = Column(Integer)
-     collection_volume_ml = Column(Float, nullable=True) 
+    
