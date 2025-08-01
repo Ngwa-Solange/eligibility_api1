@@ -6,7 +6,7 @@ def bulk_insert_donations(db: Session, df):
         record = BloodDonation(
             blood_type=row["blood_type"],
             donation_date=row["donation_date"],
-            volume=row["volume"],
+            volume = row['collection_volume_ml'],
             temperature=row["temperature"],
             donor_age=row["donor_age"],
             location=row["location"],
