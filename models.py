@@ -7,7 +7,7 @@ class BloodDonation(Base):
     id = Column(Integer, primary_key=True, index=True)
     blood_type = Column(String)
     donation_date = Column(Date)
-    volume = Column(Float)
+    collection_volume_ml = Column(Float)
     temperature = Column(Float)
     donor_age = Column(Integer)
     location = Column(String)
