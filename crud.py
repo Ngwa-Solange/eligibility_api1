@@ -17,7 +17,7 @@ def bulk_insert_donations(db: Session, df: pd.DataFrame):
             donation_date=donation_date_obj,
             blood_type=row["blood_type"],
             collection_volume_ml=row["collection_volume_ml"],  # ✅ mapped correctly
-            hemoglobin_g_dl"=row["hemoglobin_g_dl"],   # ✅ mapped correctly
+            hemoglobin_g_dl=row["hemoglobin_g_dl"],   # ✅ mapped correctly
             donor_age=row["donor_age"],
             donor_gender=row["donor_gender"],
             shelf_life_days=row["shelf_life_days"]
